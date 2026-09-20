@@ -1,1 +1,3 @@
-User-agent: *\nAllow: /\nSitemap: https://ddungja.github.io/fishing-report-site/sitemap.xml\n
+User-agent: *
+Allow: /
+Sitemap: https://ddungja.github.io/fishing-report-site/sitemap.xml
