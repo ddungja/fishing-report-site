@@ -380,6 +380,7 @@ def nav(prefix=""):
         f'<a href="{prefix}guide.html">이용안내</a>'
         f'<a href="{prefix}about.html">소개</a>'
         f'<a href="{prefix}boats.html">지역별 선박</a>'
+        f'<a href="{prefix}autumn.html">가을낚시</a>'
         f'<a href="{prefix}gear.html">장비 선택</a>'
         f'<a href="{prefix}privacy.html">개인정보처리방침</a>'
         f'<a href="{prefix}articles.html">낚시가이드</a>'
@@ -424,7 +425,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:28px 0;color:var
 
     tabs = ['<button class="tab active" data-source="all">전체</button>']
     cards = []
-    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-flounder.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
+    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","autumn.html","autumn-cuttlefish.html","autumn-jjukkumi.html","autumn-octopus.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
 
     for source in sources:
         posts = collect_source(source)
@@ -511,7 +512,7 @@ data-search="{esc(search)}">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>선상 조황 모아보기</title>
-<meta name="description" content="안흥 스페이스호와 군산 뚱스호의 최신 선상낚시 조황을 날짜별·선박별로 정리합니다.">
+<meta name="description" content="가을 선상낚시 갑오징어·주꾸미·문어 조황과 지역별 선박, 장비 선택 정보를 정리합니다.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -519,7 +520,7 @@ data-search="{esc(search)}">
 <main class="wrap">
 <section class="hero">
 <h1>최신 선상 조황을 한눈에</h1>
-<p>선박별·날짜별 공개 조황을 정리하고 각 상세페이지에서 원문 출처를 확인할 수 있습니다.</p>
+<p>가을 선상낚시의 핵심 어종인 갑오징어·주꾸미·문어를 중심으로 조황, 지역별 선박, 장비 선택 정보를 정리합니다.</p>
 </section>
 <div class="tabs">{''.join(tabs)}</div>
 <div class="filters"><input id="search" type="search" placeholder="선박명·제목·본문 검색"><input id="date" type="date"></div>
@@ -676,14 +677,54 @@ q.oninput=apply;d.onchange=apply;apply();
     )
 
     simple_page(
-        "gear.html",
-        "낚시 장비 선택",
-        "<p>선상낚시는 대상 어종에 따라 로드, 릴, 합사, 쇼크리더, 봉돌과 에기의 조합이 달라집니다. 아래 가이드는 제품 추천보다 '선택 기준'에 초점을 맞춥니다.</p>"
+        "autumn.html",
+        "가을 선상낚시 특집",
+        "<p>가을에는 서해권을 중심으로 갑오징어·주꾸미·문어 출조를 많이 찾습니다. 이 사이트는 당분간 이 세 어종의 조황과 장비, 출조 준비 정보를 집중적으로 다룹니다.</p>"
         "<div class='info-grid'>"
-        "<div class='info-card'><h2>주꾸미</h2><p>가벼운 채비와 바닥 감도가 중요합니다.</p><a class='source' href='gear-jjukkumi.html'>주꾸미 장비 가이드 →</a></div>"
-        "<div class='info-card'><h2>갑오징어</h2><p>입질 감도와 에기 운용, 채비 밸런스를 봅니다.</p><a class='source' href='gear-cuttlefish.html'>갑오징어 장비 가이드 →</a></div>"
-        "<div class='info-card'><h2>광어 다운샷</h2><p>봉돌 중량 대응력과 허리힘, 릴링 안정성이 중요합니다.</p><a class='source' href='gear-flounder.html'>광어 장비 가이드 →</a></div>"
-        "<div class='info-card'><h2>문어</h2><p>무거운 채비와 바닥 걸림에 버틸 파워가 필요합니다.</p><a class='source' href='gear-octopus.html'>문어 장비 가이드 →</a></div>"
+        "<div class='info-card'><span class='tag'>갑오징어</span><h2>갑오징어 시즌 가이드</h2><p>조황을 읽는 법, 장비 밸런스, 에기 운용 포인트를 정리합니다.</p><a class='source' href='autumn-cuttlefish.html'>갑오징어 가이드 →</a></div>"
+        "<div class='info-card'><span class='tag'>주꾸미</span><h2>주꾸미 시즌 가이드</h2><p>마릿수 조황을 볼 때 주의할 점과 가벼운 장비 구성 기준을 설명합니다.</p><a class='source' href='autumn-jjukkumi.html'>주꾸미 가이드 →</a></div>"
+        "<div class='info-card'><span class='tag'>문어</span><h2>문어 시즌 가이드</h2><p>강한 장비와 무거운 채비를 사용하는 문어 낚시의 준비 포인트를 정리합니다.</p><a class='source' href='autumn-octopus.html'>문어 가이드 →</a></div>"
+        "</div>"
+        "<h2>가을 조황을 비교할 때</h2>"
+        "<ul><li>갑오징어와 주꾸미는 같은 날이라도 포인트와 물때에 따라 차이가 큽니다.</li><li>장원 기록과 전체 평균을 구분해서 봅니다.</li><li>사진 장수보다 본문의 마릿수·씨알·활성도 설명을 같이 확인합니다.</li><li>문어는 개체 크기와 채비 중량, 바닥 형태를 함께 고려해야 합니다.</li></ul>"
+        "<div class='note'>출항 여부와 봉돌 호수, 채비 규정은 실제 승선할 선사의 최신 공지를 가장 우선해서 확인하세요.</div>"
+    )
+
+    simple_page(
+        "autumn-cuttlefish.html",
+        "가을 갑오징어 낚시 가이드",
+        "<p>가을 갑오징어 조황은 단순 마릿수뿐 아니라 씨알, 평균 조과, 출조 시간, 포인트 이동 횟수까지 함께 보면 더 정확하게 읽을 수 있습니다.</p>"
+        "<h2>조황에서 볼 항목</h2><ul><li>장원 마릿수와 평균 마릿수의 차이</li><li>씨알 표현과 사진에서 보이는 크기</li><li>오전·오후·종일반 등 실제 낚시 시간</li><li>연속된 날짜의 조황 흐름</li></ul>"
+        "<h2>장비 핵심</h2><p>초릿대 감도만 보는 것보다 갑오징어 무게를 들어 올릴 수 있는 허리힘과 전체 밸런스를 함께 보는 것이 좋습니다.</p>"
+        "<p><a class='source' href='gear-cuttlefish.html'>갑오징어 장비 선택 자세히 보기 →</a></p>"
+    )
+
+    simple_page(
+        "autumn-jjukkumi.html",
+        "가을 주꾸미 낚시 가이드",
+        "<p>주꾸미는 마릿수 조황이 자주 강조되지만, 하루 총마릿수만으로 배나 날짜를 단순 비교하기는 어렵습니다.</p>"
+        "<h2>조황에서 볼 항목</h2><ul><li>장원과 평균 조과</li><li>낚시 시간과 이동 거리</li><li>주꾸미 크기와 활성도 표현</li><li>바람·조류가 강했던 날인지 여부</li></ul>"
+        "<h2>장비 핵심</h2><p>가벼운 세팅과 바닥 감도가 중요하고, 하루 종일 반복해서 들었다 놓는 낚시라 피로도가 낮은 구성이 실전에서 편합니다.</p>"
+        "<p><a class='source' href='gear-jjukkumi.html'>주꾸미 장비 선택 자세히 보기 →</a></p>"
+    )
+
+    simple_page(
+        "autumn-octopus.html",
+        "가을 문어 낚시 가이드",
+        "<p>문어는 주꾸미·갑오징어와 달리 무거운 채비와 강한 제압력이 요구되는 경우가 많아 장비 구성이 확실히 다릅니다.</p>"
+        "<h2>조황에서 볼 항목</h2><ul><li>마릿수뿐 아니라 평균 크기</li><li>바닥 걸림이 많은 포인트인지</li><li>사용 봉돌 중량</li><li>출조 시간과 이동 거리</li></ul>"
+        "<h2>장비 핵심</h2><p>로드의 허리힘, 릴의 권상력, 합사 내구성을 우선하며 출조선의 권장 봉돌을 안정적으로 사용할 수 있는지 확인해야 합니다.</p>"
+        "<p><a class='source' href='gear-octopus.html'>문어 장비 선택 자세히 보기 →</a></p>"
+    )
+
+    simple_page(
+        "gear.html",
+        "가을 선상낚시 장비 선택",
+        "<p>현재 사이트의 장비 콘텐츠는 가을 선상낚시에서 많이 찾는 <strong>갑오징어 · 주꾸미 · 문어</strong>를 중심으로 구성합니다. 제품명보다 로드·릴·합사·봉돌·에기 선택 기준을 먼저 정리합니다.</p>"
+        "<div class='info-grid'>"
+        "<div class='info-card'><span class='tag'>가을 핵심</span><h2>갑오징어</h2><p>입질 감도와 에기 운용, 채비 밸런스를 중심으로 봅니다.</p><a class='source' href='gear-cuttlefish.html'>갑오징어 장비 가이드 →</a></div>"
+        "<div class='info-card'><span class='tag'>가을 핵심</span><h2>주꾸미</h2><p>가벼운 채비와 바닥 감도, 장시간 운용 피로도가 중요합니다.</p><a class='source' href='gear-jjukkumi.html'>주꾸미 장비 가이드 →</a></div>"
+        "<div class='info-card'><span class='tag'>가을 대상어</span><h2>문어</h2><p>무거운 채비와 바닥 걸림에 버틸 파워가 필요합니다.</p><a class='source' href='gear-octopus.html'>문어 장비 가이드 →</a></div>"
         "</div>"
         "<h2>경험 수준별 장비 선택</h2>"
         "<div class='info-grid'>"
@@ -715,16 +756,6 @@ q.oninput=apply;d.onchange=apply;apply();
         "<tr><td>릴</td><td>소형 베이트릴을 많이 사용하며 드랙 조절과 일정한 릴링이 편한 제품이 유리합니다.</td></tr>"
         "<tr><td>라인</td><td>조류 저항과 바닥 감도를 고려해 합사를 선택하고 필요하면 쇼크리더를 사용합니다.</td></tr>"
         "<tr><td>에기</td><td>활성도와 물색 변화에 대응할 수 있도록 색상·침강 특성이 다른 에기를 준비합니다.</td></tr></table>"
-    )
-
-    simple_page(
-        "gear-flounder.html",
-        "광어 다운샷 장비 선택",
-        "<p>광어 다운샷은 상대적으로 무거운 봉돌을 사용하고 큰 개체의 저항을 받아내야 하므로 로드의 허리힘과 릴의 안정성이 중요합니다.</p>"
-        "<table class='spec-table'><tr><th>항목</th><th>선택 기준</th></tr>"
-        "<tr><td>로드</td><td>출조선이 사용하는 봉돌 중량을 충분히 소화하면서 입질 표현도 확인할 수 있는 다운샷 전용대가 편합니다.</td></tr>"
-        "<tr><td>릴</td><td>중형 베이트릴 계열이 많이 쓰이며 충분한 라인 용량과 안정적인 드랙을 봅니다.</td></tr>"
-        "<tr><td>라인</td><td>합사 강도는 대상 크기와 포인트 여건에 맞추고, 쓸림이 많은 곳은 리더 내구성을 신경 씁니다.</td></tr></table>"
     )
 
     simple_page(
