@@ -359,6 +359,7 @@ def nav(prefix=""):
         f'<a href="{prefix}guide.html">이용안내</a>'
         f'<a href="{prefix}about.html">소개</a>'
         f'<a href="{prefix}privacy.html">개인정보처리방침</a>'
+        f'<a href="{prefix}articles.html">낚시가이드</a>'
         f'<a href="{prefix}contact.html">문의</a>'
         '</nav>'
     )
@@ -398,7 +399,7 @@ header{background:#fff;border-bottom:1px solid var(--line)}header .wrap{display:
 
     tabs = ['<button class="tab active" data-source="all">전체</button>']
     cards = []
-    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html"]
+    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html"]
 
     for source in sources:
         posts = collect_source(source)
@@ -561,6 +562,59 @@ q.oninput=apply;d.onchange=apply;apply();
         "contact.html",
         "문의",
         "<p>게시물 수정·삭제, 권리 관련 요청, 잘못된 정보 제보를 위한 운영 이메일을 정식 공개 전에 이 페이지에 추가할 예정입니다.</p>"
+        "<p>문의 시 게시물 제목과 페이지 주소를 함께 적어 주시면 확인에 도움이 됩니다.</p>"
+    )
+
+    simple_page(
+        "articles.html",
+        "낚시가이드",
+        "<p>조황을 단순히 사진 수로만 판단하지 않고 실제 출조에 도움이 되도록 읽는 방법을 정리했습니다.</p>"
+        "<h2><a class='source' href='article-catch-reading.html'>조황 사진과 글을 읽는 방법</a></h2>"
+        "<p>사진 장수, 마릿수 표현, 날짜, 출조 형태를 함께 보는 기준을 설명합니다.</p>"
+        "<h2><a class='source' href='article-trip-checklist.html'>선상낚시 출조 전 체크리스트</a></h2>"
+        "<p>예약 전부터 출항 당일까지 확인하면 좋은 항목을 정리했습니다.</p>"
+        "<h2><a class='source' href='article-comparison.html'>여러 선박 조황을 비교할 때 보는 기준</a></h2>"
+        "<p>같은 날짜의 조황도 조건이 다를 수 있으므로 공정하게 비교하는 방법을 안내합니다.</p>"
+    )
+
+    simple_page(
+        "article-catch-reading.html",
+        "조황 사진과 글을 읽는 방법",
+        "<p>조황 게시물은 다음 출조지를 고르는 데 유용하지만, 사진 한 장이나 제목만 보고 판단하면 실제 상황과 차이가 날 수 있습니다.</p>"
+        "<h2>1. 날짜와 출조 형태를 먼저 확인</h2>"
+        "<p>종일반·오전반·야간반처럼 출조 시간이 다르면 같은 마릿수라도 의미가 달라집니다. 먼저 실제 출조 날짜와 운항 형태를 확인하세요.</p>"
+        "<h2>2. 장원 기록과 전체 평균을 구분</h2>"
+        "<p>‘장원 300수’처럼 가장 많이 잡은 한 사람의 기록과 전체 승선객의 평균 조과는 다릅니다. 제목의 최고 기록만으로 전체 조황을 판단하지 않는 것이 좋습니다.</p>"
+        "<h2>3. 사진 장수는 조과의 절대 기준이 아님</h2>"
+        "<p>선사가 사진을 많이 올리는 날도 있고 대표사진만 올리는 날도 있습니다. 사진 수보다 본문의 마릿수 표현과 현장 설명을 함께 확인하세요.</p>"
+        "<h2>4. 연속된 여러 날짜를 확인</h2>"
+        "<p>하루의 좋은 조황보다 3~5일 정도의 흐름을 같이 보면 해당 시기의 안정적인 조과인지 판단하기 쉽습니다.</p>"
+    )
+
+    simple_page(
+        "article-trip-checklist.html",
+        "선상낚시 출조 전 체크리스트",
+        "<p>조황이 좋아 보여도 실제 출조 준비가 맞지 않으면 불편할 수 있습니다. 예약 전과 출항 전에 아래 항목을 확인하세요.</p>"
+        "<h2>예약 전</h2>"
+        "<ul><li>대상 어종과 출조 시간</li><li>출항지와 집결 시간</li><li>선비와 취소·환불 규정</li><li>장비 대여 가능 여부</li></ul>"
+        "<h2>출항 전날</h2>"
+        "<ul><li>기상과 출항 여부</li><li>신분증과 필요한 개인 장비</li><li>멀미약 복용 시점</li><li>방수·방풍 의류와 여벌 옷</li></ul>"
+        "<h2>현장 도착 후</h2>"
+        "<p>선장의 안전 안내와 자리 배정, 채비 규정을 먼저 확인하고 다른 승선객의 낚시 공간을 침범하지 않도록 준비하는 것이 좋습니다.</p>"
+    )
+
+    simple_page(
+        "article-comparison.html",
+        "여러 선박 조황을 비교할 때 보는 기준",
+        "<p>같은 지역의 선박이라도 조황 게시물은 서로 다른 방식으로 작성됩니다. 비교할 때는 동일한 기준을 맞추는 것이 중요합니다.</p>"
+        "<h2>같은 날짜 또는 비슷한 물때끼리 비교</h2>"
+        "<p>일주일 이상 차이가 나는 조황은 수온과 어군 상황이 달라질 수 있습니다. 가능한 한 같은 날짜나 가까운 날짜끼리 비교하세요.</p>"
+        "<h2>대상 어종과 출조 시간을 맞추기</h2>"
+        "<p>쭈꾸미 종일반과 갑오징어 오후반처럼 조건이 다른 출조는 단순 마릿수로 비교하기 어렵습니다.</p>"
+        "<h2>최고 기록보다 반복성을 보기</h2>"
+        "<p>한 번의 큰 조과보다 여러 날짜에 걸쳐 꾸준히 비슷한 결과가 나오는지 확인하면 보다 현실적인 판단에 도움이 됩니다.</p>"
+        "<h2>원문 확인</h2>"
+        "<p>본 사이트는 빠른 비교를 돕기 위한 정리 서비스입니다. 예약이나 출항 결정을 내리기 전에는 각 상세페이지의 선상24 원문 링크에서 최신 안내를 다시 확인하세요.</p>"
     )
 
     (DOCS/"robots.txt").write_text(
