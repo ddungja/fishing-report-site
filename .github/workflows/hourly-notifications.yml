@@ -1,0 +1,39 @@
+name: Hourly Kakao fishing-report digest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run hourly notification worker
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          KAKAO_BUSINESS_ACCESS_TOKEN: ${{ secrets.KAKAO_BUSINESS_ACCESS_TOKEN }}
+          KAKAO_AD_ACCOUNT_ID: ${{ secrets.KAKAO_AD_ACCOUNT_ID }}
+          KAKAO_CREATIVE_ID: ${{ secrets.KAKAO_CREATIVE_ID }}
+          PUBLIC_SITE_URL: https://ddungja.github.io/fishing-report-site/
+          NOTIFICATION_DRY_RUN: ${{ vars.NOTIFICATION_DRY_RUN || '1' }}
+          SEND_START_HOUR: "8"
+          SEND_END_HOUR: "21"
+        run: python notification_worker.py
