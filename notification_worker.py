@@ -91,10 +91,18 @@ def sync_latest_reports():
             if existing:
                 continue
 
+            species = post.get("species") or []
+            species_label = " · ".join(species[:2])
+            factual_title = (
+                f"{source['name']} 새 조황"
+                + (f" · {species_label}" if species_label else "")
+                + (f" · {post.get('date')}" if post.get("date") else "")
+            )
+
             row = {
                 "boat_id": source["id"],
                 "report_key": key,
-                "title": post.get("title") or "새 조황",
+                "title": factual_title,
                 "report_date": post.get("date") or None,
                 "source_url": post.get("detail_url") or source.get("board_url"),
             }
