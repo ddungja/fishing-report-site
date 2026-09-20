@@ -18,5 +18,6 @@
       "max_posts": 30,
       "enabled": true
     }
-  ]
+  ],
+  "site_version": "v1"
 }
