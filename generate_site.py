@@ -425,7 +425,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:28px 0;color:var
 
     tabs = ['<button class="tab active" data-source="all">전체</button>']
     cards = []
-    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","autumn.html","autumn-cuttlefish.html","autumn-jjukkumi.html","autumn-octopus.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
+    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","autumn.html","autumn-cuttlefish.html","autumn-jjukkumi.html","autumn-octopus.html","autumn-cuttlefish-egi.html","autumn-jjukkumi-sinker.html","autumn-octopus-rig.html","autumn-tide.html","autumn-beginner-mistakes.html","autumn-checklist.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
 
     for source in sources:
         posts = collect_source(source)
@@ -687,6 +687,15 @@ q.oninput=apply;d.onchange=apply;apply();
         "</div>"
         "<h2>가을 조황을 비교할 때</h2>"
         "<ul><li>갑오징어와 주꾸미는 같은 날이라도 포인트와 물때에 따라 차이가 큽니다.</li><li>장원 기록과 전체 평균을 구분해서 봅니다.</li><li>사진 장수보다 본문의 마릿수·씨알·활성도 설명을 같이 확인합니다.</li><li>문어는 개체 크기와 채비 중량, 바닥 형태를 함께 고려해야 합니다.</li></ul>"
+        "<h2>세부 실전 가이드</h2>"
+        "<div class='info-grid'>"
+        "<div class='info-card'><h3>갑오징어 에기 선택</h3><p>색상, 크기, 침강 특성을 어떻게 나눠 준비할지 정리합니다.</p><a class='source' href='autumn-cuttlefish-egi.html'>에기 선택 보기 →</a></div>"
+        "<div class='info-card'><h3>주꾸미 봉돌·채비</h3><p>봉돌 무게와 조류, 바닥감의 관계를 설명합니다.</p><a class='source' href='autumn-jjukkumi-sinker.html'>봉돌·채비 보기 →</a></div>"
+        "<div class='info-card'><h3>문어 채비</h3><p>강한 채비와 바닥 걸림에 대응하는 기준을 정리합니다.</p><a class='source' href='autumn-octopus-rig.html'>문어 채비 보기 →</a></div>"
+        "<div class='info-card'><h3>물때별 조황 보는 법</h3><p>조황을 물때와 함께 볼 때 주의할 점을 정리합니다.</p><a class='source' href='autumn-tide.html'>물때 가이드 →</a></div>"
+        "<div class='info-card'><h3>초보자 실수</h3><p>가을 선상낚시 초보자가 자주 겪는 실수를 미리 정리합니다.</p><a class='source' href='autumn-beginner-mistakes.html'>초보 실수 보기 →</a></div>"
+        "<div class='info-card'><h3>출조 준비물</h3><p>전날부터 승선 직전까지 확인할 준비물을 정리합니다.</p><a class='source' href='autumn-checklist.html'>출조 준비물 보기 →</a></div>"
+        "</div>"
         "<div class='note'>출항 여부와 봉돌 호수, 채비 규정은 실제 승선할 선사의 최신 공지를 가장 우선해서 확인하세요.</div>"
     )
 
@@ -715,6 +724,64 @@ q.oninput=apply;d.onchange=apply;apply();
         "<h2>조황에서 볼 항목</h2><ul><li>마릿수뿐 아니라 평균 크기</li><li>바닥 걸림이 많은 포인트인지</li><li>사용 봉돌 중량</li><li>출조 시간과 이동 거리</li></ul>"
         "<h2>장비 핵심</h2><p>로드의 허리힘, 릴의 권상력, 합사 내구성을 우선하며 출조선의 권장 봉돌을 안정적으로 사용할 수 있는지 확인해야 합니다.</p>"
         "<p><a class='source' href='gear-octopus.html'>문어 장비 선택 자세히 보기 →</a></p>"
+    )
+
+    simple_page(
+        "autumn-cuttlefish-egi.html",
+        "갑오징어 에기 선택 가이드",
+        "<p>갑오징어 에기는 특정 색 하나가 항상 정답이라기보다 물색, 빛, 수심, 활성도에 따라 반응이 달라질 수 있습니다. 처음부터 너무 많은 종류를 사기보다 서로 성격이 다른 에기를 준비하는 방식이 실용적입니다.</p>"
+        "<h2>색상 구성</h2><ul><li>밝은 계열: 탁한 물색이나 존재감을 보여주고 싶을 때 준비</li><li>어두운 계열: 실루엣 대비를 노릴 때 활용</li><li>자연색 계열: 경계심이 높은 상황에 대비</li></ul>"
+        "<h2>크기와 침강</h2><p>조류가 빠르거나 깊은 수심에서는 채비 전체가 밀릴 수 있으므로 에기 자체의 크기보다 봉돌과 전체 밸런스를 함께 봐야 합니다.</p>"
+        "<h2>초보자 구성</h2><p>서로 다른 색 계열 3~5개와 예비 에기부터 시작한 뒤, 실제 출조에서 반응이 좋았던 타입을 추가하는 방식이 좋습니다.</p>"
+        "<div class='note'>실제 선박마다 허용 채비와 에기 개수 규정이 다를 수 있으니 승선 전 공지를 우선 확인하세요.</div>"
+    )
+
+    simple_page(
+        "autumn-jjukkumi-sinker.html",
+        "주꾸미 봉돌과 채비 선택",
+        "<p>주꾸미 낚시에서 봉돌은 바닥을 읽는 감도와 채비 안정성에 직접 영향을 줍니다. 너무 가벼우면 바닥을 놓치고, 너무 무거우면 피로도가 커질 수 있습니다.</p>"
+        "<h2>봉돌을 고르는 기준</h2><ul><li>조류가 빠를수록 더 무거운 봉돌이 필요할 수 있음</li><li>수심이 깊을수록 채비 정렬이 중요함</li><li>선박 전체가 같은 봉돌 호수를 맞추는 경우가 많음</li></ul>"
+        "<h2>채비 밸런스</h2><p>가벼운 에기와 무거운 봉돌 조합은 바닥 확인에는 유리할 수 있지만 전체 움직임이 둔해질 수 있습니다. 선장의 권장 호수를 우선하고 그 안에서 조절하는 것이 안전합니다.</p>"
+        "<h2>여분 준비</h2><p>바닥 걸림이 있는 날은 봉돌 손실이 생길 수 있으므로 동일 호수 여분을 충분히 준비하는 편이 좋습니다.</p>"
+    )
+
+    simple_page(
+        "autumn-octopus-rig.html",
+        "문어 채비 구성 가이드",
+        "<p>문어 채비는 바닥 걸림과 강한 흡착력에 대응해야 해서 주꾸미·갑오징어보다 튼튼한 구성이 필요합니다.</p>"
+        "<h2>핵심 요소</h2><ul><li>강한 원줄과 리더</li><li>충분한 권상력을 가진 릴</li><li>무거운 봉돌을 견디는 로드</li><li>바닥 걸림을 고려한 여분 채비</li></ul>"
+        "<h2>운용</h2><p>바닥을 오래 끌기보다 선장의 운용 방식과 포인트 특성에 맞춰 짧게 들어 올리고 다시 바닥을 확인하는 식으로 운용하는 경우가 많습니다.</p>"
+        "<div class='note'>문어 채비는 지역과 선박에 따라 규정 차이가 큰 편이므로 실제 출조선 공지가 최우선입니다.</div>"
+    )
+
+    simple_page(
+        "autumn-tide.html",
+        "가을 선상낚시 물때별 조황 보는 법",
+        "<p>물때는 조황을 이해할 때 참고할 요소 중 하나지만, 물때 하나만으로 조과를 단정하기는 어렵습니다.</p>"
+        "<h2>같이 봐야 할 요소</h2><ul><li>바람과 파고</li><li>조류 세기</li><li>수심과 포인트</li><li>낚시 시간</li><li>대상 어종의 활성도</li></ul>"
+        "<h2>조황 비교 방법</h2><p>가능하면 같은 지역·같은 어종·비슷한 물때의 조황을 여러 날짜 묶어서 보는 편이 낫습니다. 하루의 대박 조황만으로 다음 출조 결과를 예상하지 않는 것이 좋습니다.</p>"
+        "<h2>초보자가 흔히 하는 오해</h2><p>‘이 물때면 무조건 잘 잡힌다’처럼 단순화하면 실제 현장과 차이가 생길 수 있습니다. 물때는 여러 조건 중 하나로 보는 것이 적절합니다.</p>"
+    )
+
+    simple_page(
+        "autumn-beginner-mistakes.html",
+        "가을 선상낚시 초보자 실수",
+        "<p>갑오징어·주꾸미·문어 시즌에는 처음 선상낚시를 시작하는 사람도 많습니다. 아래 실수를 줄이면 첫 출조가 훨씬 편해집니다.</p>"
+        "<h2>자주 하는 실수</h2><ol><li>선박의 봉돌 호수를 확인하지 않고 장비를 준비함</li><li>에기와 채비를 너무 적게 가져감</li><li>집결 시간과 승선 장소를 출발 직전에 확인함</li><li>장원 마릿수만 보고 전체 조황으로 오해함</li><li>멀미 대비를 늦게 함</li><li>너무 무거운 장비를 하루 종일 사용함</li></ol>"
+        "<h2>가장 먼저 확인할 것</h2><p>예약한 선박의 최신 공지, 집결 장소, 출항 여부, 봉돌 규정 네 가지를 출발 전날 다시 확인하세요.</p>"
+    )
+
+    simple_page(
+        "autumn-checklist.html",
+        "가을 선상낚시 출조 준비물",
+        "<p>가을 선상낚시는 새벽 집결과 긴 운항이 많아 장비뿐 아니라 방풍·보온과 개인 준비물도 중요합니다.</p>"
+        "<table class='spec-table'><tr><th>구분</th><th>확인 항목</th></tr>"
+        "<tr><td>필수</td><td>신분증, 휴대폰, 예약 확인, 개인 상비약</td></tr>"
+        "<tr><td>낚시</td><td>로드, 릴, 합사, 에기, 봉돌, 채비, 라인커터, 여분 소모품</td></tr>"
+        "<tr><td>의류</td><td>방풍 겉옷, 미끄럼 방지 신발, 여벌 옷, 장갑</td></tr>"
+        "<tr><td>편의</td><td>물, 간단한 간식, 수건, 비닐봉투, 보조배터리</td></tr></table>"
+        "<h2>전날 체크</h2><ul><li>출항 여부</li><li>집결 시간과 주차 위치</li><li>권장 봉돌 호수</li><li>기상 변화</li></ul>"
+        "<div class='note'>구명조끼 등 안전장비는 선박 안내와 현행 규정을 우선해 준비하세요.</div>"
     )
 
     simple_page(
