@@ -404,40 +404,22 @@ def build():
 
     css = """
 *{box-sizing:border-box}
-:root{--bg:#f4f7f9;--card:#fff;--text:#14202a;--muted:#677681;--accent:#0878a8;--accent2:#18a8db;--line:#dce5ea;--shadow:0 12px 30px rgba(0,0,0,.08)}
+:root{--bg:#f4f7f9;--card:#fff;--text:#14202a;--muted:#677681;--accent:#076b98;--line:#dce5ea}
 body{margin:0;font-family:Arial,'Malgun Gothic',sans-serif;background:var(--bg);color:var(--text)}
 a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 30px));margin:auto}
-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-header .wrap{display:flex;flex-direction:column;gap:16px;padding:18px 0 20px}
-.logo{display:inline-flex;align-items:center;width:max-content;padding:12px 20px;border-radius:16px;background:linear-gradient(135deg,#08a8eb,#0878a8);color:#fff;font-weight:900;font-size:32px;line-height:1.1;letter-spacing:-1px;box-shadow:0 8px 20px rgba(8,120,168,.24)}
-.nav{display:flex;flex-wrap:wrap;gap:9px}
-.nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 17px;border-radius:999px;background:#fff;border:2px solid #d7e8ef;color:#184c61;font-size:15px;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.15s ease}
-.nav a:hover{transform:translateY(-2px);background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 8px 18px rgba(8,120,168,.22)}
-.hero{padding:28px 0 18px}
-.hero-box{background:linear-gradient(135deg,#075e84 0%,#0b84b6 58%,#18a8db 100%);color:#fff;border-radius:28px;padding:34px 30px;box-shadow:0 16px 38px rgba(0,72,105,.2)}
-.hero h1{font-size:clamp(34px,6vw,56px);margin:0 0 12px;line-height:1.08;letter-spacing:-1.5px}
-.hero-desc{margin:0;color:rgba(255,255,255,.93);font-size:17px;line-height:1.75;max-width:850px}
-.hero-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:24px}
-.hero-btn{display:block;background:#fff;color:var(--text);border-radius:20px;padding:21px 18px;box-shadow:0 10px 24px rgba(0,0,0,.12);transition:.15s ease}
-.hero-btn:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(0,0,0,.18)}
-.hero-btn .mini{display:inline-block;padding:5px 10px;border-radius:999px;background:#e8f6fc;color:var(--accent);font-size:12px;font-weight:900;margin-bottom:10px}
-.hero-btn h3{margin:0 0 7px;font-size:23px}.hero-btn p{margin:0;color:#5b6b74;font-size:14px;line-height:1.6}
-.quick-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0 24px}
-.quick-card{display:block;background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px 16px;box-shadow:var(--shadow);transition:.15s ease}
-.quick-card:hover{transform:translateY(-3px);border-color:#b7dce9}
-.quick-card strong{display:block;color:var(--accent);font-size:18px;margin-bottom:6px}.quick-card span{color:var(--muted);font-size:13px;line-height:1.55}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:22px 0 12px}.section-head h2{font-size:28px;margin:0}.section-head p{margin:0;color:var(--muted);font-size:14px}
-.tabs{display:flex;gap:9px;flex-wrap:wrap}.tab{padding:11px 17px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:900;font-size:15px;cursor:pointer}.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.filters{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}.filters input{padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;min-width:220px;font-size:15px}
+header{background:#fff;border-bottom:1px solid var(--line)}header .wrap{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:17px 0}
+.logo{font-weight:900;color:var(--accent);font-size:22px}.nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:700}
+.hero{padding:36px 0 20px}.hero h1{font-size:clamp(30px,6vw,50px);margin-bottom:10px}.hero p{color:var(--muted);line-height:1.7}
+.tabs{display:flex;gap:9px;flex-wrap:wrap}.tab{padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:800;cursor:pointer}.tab.active{background:var(--accent);color:#fff}
+.filters{display:flex;gap:10px;margin:16px 0}.filters input{padding:11px;border:1px solid var(--line);border-radius:10px;background:#fff}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:12px 0 50px}.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px #0001}
 .thumb{aspect-ratio:4/3;position:relative;background:#ddd}.thumb img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;right:10px;bottom:10px;background:#000a;color:#fff;border-radius:999px;padding:6px 9px;font-size:12px}
 .body{padding:17px}.date{color:var(--accent);font-weight:800;font-size:13px}.body h2{font-size:18px;line-height:1.45}.preview{color:var(--muted);line-height:1.65;font-size:14px}
 .hidden{display:none!important}.content{padding:36px 0 60px}.content p,.content li{line-height:1.9;color:#3f505b}.detail-text{background:#fff;padding:24px;border-radius:18px;line-height:1.95;margin:20px 0}
 .gallery{display:grid;gap:16px}.gallery img{width:100%;border-radius:14px}.source{color:var(--accent);font-weight:800}
-.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0}.info-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 20px #0000000a}.info-card h2,.info-card h3{margin-top:0}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#e9f5fa;color:var(--accent);font-size:12px;font-weight:800;margin:2px}.spec-table{width:100%;border-collapse:collapse;background:#fff;margin:18px 0}.spec-table th,.spec-table td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}.spec-table th{background:#eef5f8}.note{background:#eef8fc;border-left:5px solid var(--accent2);padding:14px 16px;border-radius:10px;color:#35515e;margin:16px 0;line-height:1.7}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0}.info-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 20px #0000000a}.info-card h2,.info-card h3{margin-top:0}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#e9f5fa;color:var(--accent);font-size:12px;font-weight:800;margin:2px}.spec-table{width:100%;border-collapse:collapse;background:#fff;margin:18px 0}.spec-table th,.spec-table td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}.spec-table th{background:#eef5f8}.note{background:#fff7df;border:1px solid #f0dfad;border-radius:14px;padding:16px;line-height:1.7}
 footer{background:#fff;border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
-@media(max-width:980px){.hero-buttons{grid-template-columns:1fr}.quick-links{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:650px){header{position:static}.logo{font-size:26px;padding:11px 15px}.nav a{font-size:14px;min-height:41px;padding:0 13px}.hero-box{padding:27px 20px}.quick-links,.grid,.info-grid{grid-template-columns:1fr}.filters{display:grid}.section-head{display:block}.section-head p{margin-top:7px}.spec-table{font-size:14px}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){header .wrap{flex-direction:column;align-items:flex-start}.grid,.info-grid{grid-template-columns:1fr}.filters{display:grid}.spec-table{font-size:14px}}
 """
     (DOCS/"assets"/"style.css").write_text(css, encoding="utf-8")
 
@@ -537,39 +519,9 @@ data-search="{esc(search)}">
 <header><div class="wrap"><a class="logo" href="index.html">선상 조황 모아보기</a>{nav("")}</div></header>
 <main class="wrap">
 <section class="hero">
-  <div class="hero-box">
-    <h1>가을 선상낚시<br>조황과 정보를 한눈에</h1>
-    <p class="hero-desc">갑오징어 · 주꾸미 · 문어를 중심으로 최신 조황, 지역별 선박, 장비 선택과 실전 가이드를 한곳에 모았습니다.</p>
-    <div class="hero-buttons">
-      <a class="hero-btn" href="autumn.html">
-        <span class="mini">가을 핵심 콘텐츠</span>
-        <h3>가을낚시 특집</h3>
-        <p>갑오징어·주꾸미·문어 시즌 정보와 실전 가이드를 빠르게 확인하세요.</p>
-      </a>
-      <a class="hero-btn" href="boats.html">
-        <span class="mini">출항지별 정보</span>
-        <h3>지역별 선박 보기</h3>
-        <p>안흥, 군산, 삼길포, 오천, 무창포 등 지역별 정보를 정리했습니다.</p>
-      </a>
-      <a class="hero-btn" href="gear.html">
-        <span class="mini">장비 입문·선택</span>
-        <h3>장비 선택 가이드</h3>
-        <p>로드, 릴, 봉돌, 에기와 채비를 고르는 기준을 확인하세요.</p>
-      </a>
-    </div>
-  </div>
+<h1>최신 선상 조황을 한눈에</h1>
+<p>가을 선상낚시의 핵심 어종인 갑오징어·주꾸미·문어를 중심으로 조황, 지역별 선박, 장비 선택 정보를 정리합니다.</p>
 </section>
-
-<section class="quick-links">
-  <a class="quick-card" href="autumn-cuttlefish.html"><strong>갑오징어</strong><span>에기 선택 · 조황 읽기 · 장비 밸런스</span></a>
-  <a class="quick-card" href="autumn-jjukkumi.html"><strong>주꾸미</strong><span>마릿수 조황 · 봉돌 · 채비 선택</span></a>
-  <a class="quick-card" href="autumn-octopus.html"><strong>문어</strong><span>강한 장비 · 채비 · 출조 준비</span></a>
-  <a class="quick-card" href="#latest-reports"><strong>최신 조황</strong><span>스페이스호 · 뚱스호 최신 게시물 보기</span></a>
-</section>
-
-<div class="section-head" id="latest-reports">
-  <div><h2>최신 선상 조황</h2><p>선박별·날짜별로 빠르게 찾아보세요.</p></div>
-</div>
 <div class="tabs">{''.join(tabs)}</div>
 <div class="filters"><input id="search" type="search" placeholder="선박명·제목·본문 검색"><input id="date" type="date"></div>
 <p><strong id="count"></strong></p>
