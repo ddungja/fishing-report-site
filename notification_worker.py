@@ -323,6 +323,10 @@ def send_hourly_digests():
 
 
 def main():
+    if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+        print("Notification backend is not configured yet. Skipping safely.")
+        return
+
     print("1) Sync fishing reports")
     new_reports = sync_latest_reports()
     print(f"New reports discovered: {len(new_reports)}")
