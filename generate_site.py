@@ -243,6 +243,12 @@ def enrich_detail(post):
 
         soup = BeautifulSoup(r.text, "html.parser")
 
+        generic_titles = {
+            "조황관리 HOME / 조황관리 / 상세정보",
+            "조황관리",
+            "상세정보",
+        }
+
         for selector in [
             ".title",".view_title",".subject",
             "h1","h2","h3"
@@ -250,7 +256,7 @@ def enrich_detail(post):
             tag = soup.select_one(selector)
             if tag:
                 text = tag.get_text(" ", strip=True)
-                if len(text) >= 5:
+                if len(text) >= 5 and text not in generic_titles:
                     post["title"] = text
                     break
 
@@ -263,11 +269,26 @@ def enrich_detail(post):
             if node:
                 text = node.get_text("\n", strip=True)
                 if len(text) >= 20:
-                    post["body_text"] = "\n".join(
+                    lines = [
                         line.strip()
                         for line in text.splitlines()
                         if line.strip()
-                    )
+                    ]
+                    post["body_text"] = "\n".join(lines)
+
+                    if (
+                        post.get("title") in generic_titles
+                        or post.get("title","").startswith("조황관리 ")
+                    ):
+                        for line in lines:
+                            if (
+                                len(line) >= 8
+                                and "예약문의" not in line
+                                and "오시는길" not in line
+                                and "홈페이지" not in line
+                            ):
+                                post["title"] = line[:100]
+                                break
                     break
 
         detail_photos = extract_image_urls(r.text)
