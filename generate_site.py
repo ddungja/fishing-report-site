@@ -424,7 +424,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:28px 0;color:var
 
     tabs = ['<button class="tab active" data-source="all">전체</button>']
     cards = []
-    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-flounder.html","gear-octopus.html"]
+    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-flounder.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
 
     for source in sources:
         posts = collect_source(source)
@@ -644,12 +644,16 @@ q.oninput=apply;d.onchange=apply;apply();
 
     simple_page(
         "boats.html",
-        "지역별 인기 선박",
+        "지역별 선박·출항지",
         "<p>지역별 선박을 찾을 때는 단순히 한 번의 대박 조황보다 최근 조황 업데이트, 대상 어종, 출항지, 출조 형태를 함께 확인하는 것이 좋습니다.</p>"
         "<div class='note'>현재 이 페이지의 '인기/주요 선박' 표시는 우리 사이트가 실제로 조황을 수집·추적 중인 선박을 중심으로 구성합니다. 향후 예약 빈도, 조황 업데이트 빈도, 이용자 관심도 같은 객관 지표를 추가해 고도화할 예정입니다.</div>"
         "<div class='info-grid'>"
         "<div class='info-card'><span class='tag'>충남 태안</span><span class='tag'>안흥항</span><h2>안흥 스페이스호</h2><p>현재 갑오징어·주꾸미 조황을 추적 중입니다. 최근 조황과 사진을 메인 조황 탭에서 날짜별로 확인할 수 있습니다.</p><p><a class='source' href='boat-anheung.html'>안흥 지역 보기 →</a></p></div>"
         "<div class='info-card'><span class='tag'>전북 군산</span><h2>군산 뚱스호</h2><p>군산권 조황을 추적 중인 선박입니다. 메인 조황과 연동해 최근 게시물 흐름을 확인할 수 있습니다.</p><p><a class='source' href='boat-gunsan.html'>군산 지역 보기 →</a></p></div>"
+        "<div class='info-card'><span class='tag'>충남 서산</span><h2>삼길포</h2><p>서해권 선상낚시 출항지로 많이 찾는 지역 중 하나입니다. 선박별 출조 어종과 집결 조건을 확인해 비교하세요.</p><p><a class='source' href='boat-samgilpo.html'>삼길포 가이드 →</a></p></div>"
+        "<div class='info-card'><span class='tag'>충남 보령</span><h2>오천·무창포</h2><p>보령권 선상낚시를 찾을 때 함께 비교하기 좋은 출항지입니다.</p><p><a class='source' href='boat-ocheon.html'>오천 →</a> · <a class='source' href='boat-muchangpo.html'>무창포 →</a></p></div>"
+        "<div class='info-card'><span class='tag'>수도권</span><h2>인천·평택</h2><p>수도권에서 접근성을 중시할 때 살펴볼 수 있는 출항권입니다.</p><p><a class='source' href='boat-incheon.html'>인천 →</a> · <a class='source' href='boat-pyeongtaek.html'>평택 →</a></p></div>"
+        "<div class='info-card'><span class='tag'>서남해</span><h2>목포·여수</h2><p>서남해권은 계절과 대상 어종에 따라 출조 선택지가 달라집니다.</p><p><a class='source' href='boat-mokpo.html'>목포 →</a> · <a class='source' href='boat-yeosu.html'>여수 →</a></p></div>"
         "</div>"
         "<h2>선박을 고를 때 보는 기준</h2>"
         "<ul><li>최근 3~5회 조황이 꾸준한지</li><li>내가 노리는 대상 어종을 주력으로 출조하는지</li><li>집결 시간과 출항지가 이동 동선에 맞는지</li><li>예약 취소 규정과 장비 대여 여부가 명확한지</li><li>조황 게시물이 날짜·마릿수·현장 상황을 구체적으로 설명하는지</li></ul>"
@@ -681,6 +685,12 @@ q.oninput=apply;d.onchange=apply;apply();
         "<div class='info-card'><h2>광어 다운샷</h2><p>봉돌 중량 대응력과 허리힘, 릴링 안정성이 중요합니다.</p><a class='source' href='gear-flounder.html'>광어 장비 가이드 →</a></div>"
         "<div class='info-card'><h2>문어</h2><p>무거운 채비와 바닥 걸림에 버틸 파워가 필요합니다.</p><a class='source' href='gear-octopus.html'>문어 장비 가이드 →</a></div>"
         "</div>"
+        "<h2>경험 수준별 장비 선택</h2>"
+        "<div class='info-grid'>"
+        "<div class='info-card'><h3>처음 시작하는 경우</h3><p>범용성, 무게, 사용 편의성, A/S를 우선해 첫 세트를 구성합니다.</p><a class='source' href='gear-beginner.html'>초보자 장비 구성 →</a></div>"
+        "<div class='info-card'><h3>중급자로 넘어갈 때</h3><p>자주 가는 어종과 봉돌 범위가 정해졌다면 감도와 밸런스를 세분화할 수 있습니다.</p><a class='source' href='gear-intermediate.html'>중급 장비 구성 →</a></div>"
+        "</div>"
+        "<p><a class='source' href='gear-buying-checklist.html'>낚시 장비 구매 전 체크리스트 →</a></p>"
         "<div class='note'>배마다 권장 봉돌 호수와 채비 규정이 다를 수 있으므로 출조 전 선사의 공지를 우선 확인하세요.</div>"
     )
 
@@ -726,6 +736,86 @@ q.oninput=apply;d.onchange=apply;apply();
         "<tr><td>릴</td><td>강한 권상력과 내구성, 충분한 라인 용량을 중점적으로 봅니다.</td></tr>"
         "<tr><td>라인</td><td>바닥 걸림과 강제 제압 상황이 있으므로 지나치게 가는 합사보다 내구성을 우선합니다.</td></tr>"
         "<tr><td>채비</td><td>포인트의 바닥 형태와 선사의 권장 봉돌 호수를 확인해 여유 있게 준비합니다.</td></tr></table>"
+    )
+
+    simple_page(
+        "boat-samgilpo.html",
+        "삼길포 선상낚시 가이드",
+        "<p>삼길포에서 선박을 고를 때는 출조 어종, 집결 시간, 주차·승선 동선, 최근 조황 업데이트를 함께 보는 것이 좋습니다.</p>"
+        "<h2>비교 순서</h2><ol><li>내가 원하는 어종 출조 여부 확인</li><li>최근 3~5회 조황 확인</li><li>출항·귀항 시간 비교</li><li>장비 대여와 채비 규정 확인</li></ol>"
+        "<div class='note'>이 페이지는 특정 선박의 우열이나 순위를 정하지 않습니다. 실제 선박 데이터가 추가되면 객관적인 조황 기록을 연결할 예정입니다.</div>"
+    )
+
+    simple_page(
+        "boat-ocheon.html",
+        "오천 선상낚시 가이드",
+        "<p>오천권 출조를 비교할 때는 같은 지역이라도 선박별 대상 어종과 운항 방식이 다를 수 있다는 점을 먼저 확인하세요.</p>"
+        "<h2>예약 전 확인할 항목</h2><ul><li>집결 시간과 출항지</li><li>대상 어종과 예상 운항 시간</li><li>권장 봉돌·채비</li><li>취소·환불 규정</li></ul>"
+    )
+
+    simple_page(
+        "boat-muchangpo.html",
+        "무창포 선상낚시 가이드",
+        "<p>무창포권은 출조 일정과 대상 어종을 먼저 정한 뒤 선박별 최근 조황과 공지를 비교하면 선택이 쉬워집니다.</p>"
+        "<h2>조황을 볼 때</h2><p>최고 기록 한 건보다 비슷한 조건에서 며칠간 조황이 이어지는지 확인하는 편이 실전적인 판단에 도움이 됩니다.</p>"
+    )
+
+    simple_page(
+        "boat-incheon.html",
+        "인천 선상낚시 가이드",
+        "<p>인천권은 수도권에서 접근성을 중시하는 이용자가 살펴볼 수 있는 출항 지역입니다.</p>"
+        "<h2>선박 선택 기준</h2><ul><li>이동 거리와 집결 시간</li><li>출조 어종과 운항 시간</li><li>선박별 예약 방식</li><li>최근 조황 게시 빈도</li></ul>"
+    )
+
+    simple_page(
+        "boat-pyeongtaek.html",
+        "평택 선상낚시 가이드",
+        "<p>평택권 출조는 출항지 접근성과 대상 어종, 출조 시간을 함께 비교하는 것이 좋습니다.</p>"
+        "<p>처음 이용하는 배라면 예약 전에 주차 위치와 승선 장소를 다시 확인하세요.</p>"
+    )
+
+    simple_page(
+        "boat-mokpo.html",
+        "목포 선상낚시 가이드",
+        "<p>목포권은 서남해 출조를 계획할 때 살펴볼 수 있는 지역입니다. 계절과 대상 어종에 따라 운항 방식이 달라질 수 있습니다.</p>"
+        "<h2>비교할 때</h2><p>같은 어종·비슷한 출조 시간끼리 조황을 비교하고, 기상과 이동 시간을 함께 고려하세요.</p>"
+    )
+
+    simple_page(
+        "boat-yeosu.html",
+        "여수 선상낚시 가이드",
+        "<p>여수권은 다양한 선상낚시 출조가 운영되는 지역으로, 원하는 어종과 출항 시간대에 맞춰 선박을 좁혀가는 방식이 편합니다.</p>"
+        "<h2>예약 전에</h2><ul><li>출항 항구</li><li>대상 어종</li><li>예상 귀항 시간</li><li>장비·채비 규정</li></ul>"
+    )
+
+    simple_page(
+        "gear-beginner.html",
+        "초보자 선상낚시 장비 구성",
+        "<p>처음 장비를 살 때는 최고 사양보다 '내가 실제로 자주 탈 배와 어종에 맞는지'를 먼저 보는 것이 좋습니다.</p>"
+        "<h2>우선순위</h2><ol><li>출조선의 권장 봉돌 범위를 커버하는 로드</li><li>손에 잘 잡히고 조작이 쉬운 릴</li><li>기본 합사와 여분 쇼크리더</li><li>자주 쓰는 채비의 여분</li></ol>"
+        "<h2>처음부터 많이 살 필요 없는 것</h2><p>색상만 다른 에기나 세부 스펙이 비슷한 로드를 여러 개 사기보다, 한 세트를 충분히 사용해 본 뒤 부족한 점을 기준으로 추가하는 편이 효율적입니다.</p>"
+    )
+
+    simple_page(
+        "gear-intermediate.html",
+        "중급자 선상낚시 장비 구성",
+        "<p>출조 횟수가 늘면 장비 선택 기준이 '쓸 수 있느냐'에서 '어떤 상황에서 더 편하고 정확하냐'로 바뀝니다.</p>"
+        "<h2>세분화 포인트</h2><ul><li>얕은 수심과 깊은 수심용 로드 분리</li><li>자주 쓰는 봉돌 중량 중심으로 로드 파워 선택</li><li>릴 기어비와 핸들 길이 비교</li><li>합사 굵기와 조류 저항의 균형</li></ul>"
+        "<p>스펙을 세분화할수록 범용성은 줄어들 수 있으므로 자주 가는 출조 조건을 먼저 정하는 것이 좋습니다.</p>"
+    )
+
+    simple_page(
+        "gear-buying-checklist.html",
+        "낚시 장비 구매 전 체크리스트",
+        "<p>온라인 후기나 가격만 보고 장비를 고르기보다 아래 항목을 순서대로 확인하면 불필요한 중복 구매를 줄일 수 있습니다.</p>"
+        "<table class='spec-table'><tr><th>확인 항목</th><th>질문</th></tr>"
+        "<tr><td>대상 어종</td><td>주로 어떤 어종을 낚을 것인가?</td></tr>"
+        "<tr><td>봉돌 범위</td><td>내가 타는 배에서 자주 쓰는 봉돌을 로드가 감당하는가?</td></tr>"
+        "<tr><td>장시간 사용</td><td>무게와 그립이 하루 종일 사용하기 편한가?</td></tr>"
+        "<tr><td>릴 호환</td><td>로드와 릴의 무게 균형이 맞는가?</td></tr>"
+        "<tr><td>소모품</td><td>합사·리더·바늘·에기 등 유지 비용도 감당 가능한가?</td></tr>"
+        "<tr><td>A/S</td><td>초릿대나 소모 부품을 구하기 쉬운가?</td></tr></table>"
+        "<div class='note'>제품명 자체보다 사용 조건과 규격을 먼저 정한 뒤 제품을 고르는 방식이 실패를 줄이는 데 도움이 됩니다.</div>"
     )
 
     (DOCS/"robots.txt").write_text(
