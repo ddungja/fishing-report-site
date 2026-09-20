@@ -384,6 +384,7 @@ def nav(prefix=""):
         f'<a href="{prefix}gear.html">장비 선택</a>'
         f'<a href="{prefix}privacy.html">개인정보처리방침</a>'
         f'<a href="{prefix}articles.html">낚시가이드</a>'
+        f'<a href="{prefix}notify.html">카카오 조황 알림</a>'
         f'<a href="{prefix}contact.html">문의</a>'
         '</nav>'
     )
@@ -428,7 +429,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:28px 0;color:var
 
     tabs = ['<button class="tab active" data-source="all">전체</button>']
     cards = []
-    sitemap_paths = ["index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","autumn.html","autumn-cuttlefish.html","autumn-jjukkumi.html","autumn-octopus.html","autumn-cuttlefish-egi.html","autumn-jjukkumi-sinker.html","autumn-octopus-rig.html","autumn-tide.html","autumn-beginner-mistakes.html","autumn-checklist.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
+    sitemap_paths = ["notify.html","index.html","about.html","guide.html","privacy.html","contact.html","articles.html","article-catch-reading.html","article-trip-checklist.html","article-comparison.html","boats.html","boat-anheung.html","boat-gunsan.html","boat-samgilpo.html","boat-ocheon.html","boat-muchangpo.html","boat-incheon.html","boat-pyeongtaek.html","boat-mokpo.html","boat-yeosu.html","autumn.html","autumn-cuttlefish.html","autumn-jjukkumi.html","autumn-octopus.html","autumn-cuttlefish-egi.html","autumn-jjukkumi-sinker.html","autumn-octopus-rig.html","autumn-tide.html","autumn-beginner-mistakes.html","autumn-checklist.html","gear.html","gear-jjukkumi.html","gear-cuttlefish.html","gear-octopus.html","gear-beginner.html","gear-intermediate.html","gear-buying-checklist.html"]
 
     for source in sources:
         posts = collect_source(source)
@@ -918,6 +919,124 @@ q.oninput=apply;d.onchange=apply;apply();
         "<tr><td>A/S</td><td>초릿대나 소모 부품을 구하기 쉬운가?</td></tr></table>"
         "<div class='note'>제품명 자체보다 사용 조건과 규격을 먼저 정한 뒤 제품을 고르는 방식이 실패를 줄이는 데 도움이 됩니다.</div>"
     )
+
+    notify_html = '''<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>카카오 조황 알림 | 선상 조황 모아보기</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.notify-wrap{max-width:760px;margin:0 auto}.notify-box{background:#fff;border:1px solid #dce5ea;border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 8px 22px #0000000a}
+.kakao-login{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:12px;background:#FEE500;color:#191919;font-weight:900;font-size:17px}
+.boat-row{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #eef2f4}.boat-row:last-child{border-bottom:0}.boat-row input{width:22px;height:22px}
+.save-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:0;border-radius:12px;background:#076b98;color:#fff;font-weight:900;font-size:16px;cursor:pointer}
+.muted{color:#677681}.status{padding:12px 14px;border-radius:10px;background:#eef8fc;margin:12px 0;display:none}.consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0}.consent input{width:20px;height:20px;margin-top:2px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="index.html">선상 조황 모아보기</a>''' + nav("") + '''</div></header>
+<main class="wrap content">
+<div class="notify-wrap">
+<h1>카카오 조황 알림</h1>
+<p class="muted">카카오로 로그인한 뒤 원하는 선박을 선택하세요. 새 조황이 여러 건 올라와도 사용자별로 시간당 최대 1회 묶어서 알림을 보내도록 구성합니다.</p>
+
+<div class="notify-box" id="loginBox">
+<h2>1. 카카오 로그인</h2>
+<p>로그인 후 내 알림 선박을 선택할 수 있습니다.</p>
+<a class="kakao-login" id="loginBtn" href="#">카카오로 시작하기</a>
+</div>
+
+<div class="notify-box" id="settingsBox" style="display:none">
+<h2>2. 알림 받을 선박 선택</h2>
+<p id="hello" class="muted"></p>
+<div id="boats"></div>
+
+<label class="consent">
+<input type="checkbox" id="consent">
+<span><strong>조황 알림 수신에 동의합니다.</strong><br><small class="muted">선택한 선박의 새 조황을 시간당 최대 1회 묶음으로 전송합니다.</small></span>
+</label>
+
+<button class="save-btn" id="saveBtn">알림 설정 저장</button>
+<div class="status" id="status"></div>
+</div>
+
+<div class="notify-box">
+<h2>알림 방식</h2>
+<ul>
+<li>선택한 선박의 새 조황만 전송</li>
+<li>같은 시간에 여러 건이 올라와도 최대 1회로 묶어서 전송</li>
+<li>새 조황이 없으면 메시지를 보내지 않음</li>
+<li>야간에는 발송을 쉬고 다음 발송 시간에 합산</li>
+</ul>
+</div>
+</div>
+</main>
+<footer><div class="wrap">© 2026 선상 조황 모아보기</div></footer>
+
+<script>
+const API='https://umdkypcbdcrerhfnnybi.supabase.co/functions/v1/kakao-auth';
+const loginBox=document.getElementById('loginBox');
+const settingsBox=document.getElementById('settingsBox');
+const boatsEl=document.getElementById('boats');
+const consentEl=document.getElementById('consent');
+const statusEl=document.getElementById('status');
+
+document.getElementById('loginBtn').href=API+'?op=login';
+
+const hash=new URLSearchParams(location.hash.replace(/^#/,''));
+const incoming=hash.get('session');
+if(incoming){
+  localStorage.setItem('kakao_notify_session', incoming);
+  history.replaceState(null,'',location.pathname);
+}
+
+function token(){ return localStorage.getItem('kakao_notify_session')||''; }
+function showStatus(msg){ statusEl.textContent=msg; statusEl.style.display='block'; }
+
+async function load(){
+  if(!token()) return;
+  const r=await fetch(API+'?op=status',{headers:{'x-session-token':token()}});
+  if(!r.ok){
+    localStorage.removeItem('kakao_notify_session');
+    return;
+  }
+  const data=await r.json();
+  loginBox.style.display='none';
+  settingsBox.style.display='block';
+  document.getElementById('hello').textContent=(data.user?.nickname?data.user.nickname+'님, ':'')+'알림 받을 선박을 선택하세요.';
+  consentEl.checked=!!data.user?.notification_consent;
+  boatsEl.innerHTML='';
+  (data.boats||[]).forEach(b=>{
+    const label=document.createElement('label');
+    label.className='boat-row';
+    label.innerHTML='<input type="checkbox" value="'+b.id+'" '+(b.selected?'checked':'')+'><strong>'+b.name+'</strong>';
+    boatsEl.appendChild(label);
+  });
+}
+
+document.getElementById('saveBtn').onclick=async()=>{
+  const boat_ids=[...boatsEl.querySelectorAll('input:checked')].map(x=>x.value);
+  if(!consentEl.checked){
+    showStatus('조황 알림 수신 동의에 체크해주세요.');
+    return;
+  }
+  const r=await fetch(API+'?op=save',{
+    method:'POST',
+    headers:{'content-type':'application/json','x-session-token':token()},
+    body:JSON.stringify({boat_ids,notification_consent:true})
+  });
+  if(r.ok) showStatus('저장되었습니다. 선택한 선박의 새 조황을 묶어서 알려드립니다.');
+  else showStatus('저장 중 오류가 발생했습니다.');
+};
+
+load();
+</script>
+</body>
+</html>'''
+
+    (DOCS/"notify.html").write_text(notify_html, encoding="utf-8")
 
     (DOCS/"robots.txt").write_text(
         f"User-agent: *\\nAllow: /\\nSitemap: {BASE_URL}/sitemap.xml\\n",
