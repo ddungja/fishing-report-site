@@ -4,20 +4,24 @@
       "id": "spaceho",
       "name": "안흥 스페이스호",
       "keyword": "스페이스호",
+      "region": "충남 태안",
+      "harbor": "안흥항",
       "board_url": "https://spaceho.sunsang24.com/ship/board?f=360%2C538%2C361%2C128%2C152%2C626&sch_ship_no=",
       "start_date": "2026-09-01",
-      "max_posts": 30,
+      "max_posts": 60,
       "enabled": true
     },
     {
       "id": "ddoongs",
       "name": "군산 뚱스호",
       "keyword": "뚱스호",
+      "region": "전북 군산",
+      "harbor": "군산권",
       "board_url": "https://seo.sunsang24.com/ship/board?f=360%2C538%2C361%2C128%2C152%2C626&sch_ship_no=",
       "start_date": "2026-09-01",
-      "max_posts": 30,
+      "max_posts": 60,
       "enabled": true
     }
   ],
-  "site_version": "v1"
+  "site_version": "v2-metadata-first"
 }
