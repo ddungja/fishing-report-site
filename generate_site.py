@@ -306,7 +306,6 @@ def page_shell(title, description, body, prefix="", extra_head=""):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="canonical" href="{BASE_URL}/{prefix and '' or ''}">
 <link rel="stylesheet" href="{prefix}assets/style.css">
 {extra_head}
 </head>
